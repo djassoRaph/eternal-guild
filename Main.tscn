@@ -1,0 +1,207 @@
+[gd_scene load_steps=14 format=3 uid="uid://ynyu6qwccc4r"]
+
+[ext_resource type="Script" uid="uid://dy18771ax6vjr" path="res://Main.gd" id="1_glv2v"]
+[ext_resource type="Texture2D" uid="uid://c73k2l5tk4isn" path="res://assets/guild_hall.png" id="2_uu6xs"]
+[ext_resource type="Texture2D" uid="uid://bsuec21yrnyy7" path="res://assets/guild_hall_tavern.png" id="3_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://b2shpgjffymyx" path="res://assets/guild_hall_desk.png" id="4_fos0i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glv2v"]
+bg_color = Color(0.0742442, 0.0449505, 0.0264639, 1)
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_glv2v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu6xs"]
+bg_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0du0"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="FontFile" id="FontFile_glv2v"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_uu6xs"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_r0du0"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_cm0pq"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_fos0i"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glv2v")
+
+[node name="TavernBackground" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uu6xs")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TavernBackground_bar_hover" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_cm0pq")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TavernBackground_desk_hover" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fos0i")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="GameUI" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -508.0
+offset_top = -233.0
+offset_right = -8.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TopBar" type="HBoxContainer" parent="GameUI"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="DayLabel" type="Label" parent="GameUI/TopBar"]
+layout_mode = 2
+text = "Day Label Value"
+
+[node name="GoldLabel" type="Label" parent="GameUI/TopBar"]
+layout_mode = 2
+text = "Gold Quanity Value"
+
+[node name="BeerLabel" type="Label" parent="GameUI/TopBar"]
+layout_mode = 2
+text = "Beer Stock Value"
+
+[node name="MainArea" type="HSplitContainer" parent="GameUI"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+split_offset = -200
+
+[node name="TavernView" type="Panel" parent="GameUI/MainArea"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_glv2v")
+
+[node name="LogContainer" type="ScrollContainer" parent="GameUI/MainArea/TavernView"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_glv2v")
+theme_override_styles/panel = SubResource("StyleBoxFlat_uu6xs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r0du0")
+
+[node name="GameLog2" type="RichTextLabel" parent="GameUI/MainArea/TavernView/LogContainer"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_glv2v")
+theme_override_fonts/mono_font = SubResource("FontFile_uu6xs")
+theme_override_fonts/italics_font = SubResource("FontFile_r0du0")
+theme_override_fonts/bold_italics_font = SubResource("FontFile_cm0pq")
+theme_override_fonts/bold_font = SubResource("FontFile_fos0i")
+theme_override_font_sizes/bold_italics_font_size = 12
+theme_override_font_sizes/italics_font_size = 12
+theme_override_font_sizes/mono_font_size = 12
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "
+"
+fit_content = true
+tab_size = 10
+
+[node name="BottomBar" type="HBoxContainer" parent="GameUI"]
+layout_mode = 2
+
+[node name="NextDayButton" type="Button" parent="GameUI/BottomBar"]
+layout_direction = 3
+layout_mode = 2
+text = "Next Day
+"
