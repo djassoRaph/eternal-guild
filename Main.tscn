@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://ynyu6qwccc4r"]
+[gd_scene load_steps=17 format=3 uid="uid://ynyu6qwccc4r"]
 
 [ext_resource type="Script" uid="uid://dy18771ax6vjr" path="res://Main.gd" id="1_glv2v"]
 [ext_resource type="Texture2D" uid="uid://c73k2l5tk4isn" path="res://assets/guild_hall.png" id="2_uu6xs"]
 [ext_resource type="Texture2D" uid="uid://bsuec21yrnyy7" path="res://assets/guild_hall_tavern.png" id="3_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://b2shpgjffymyx" path="res://assets/guild_hall_desk.png" id="4_fos0i"]
+[ext_resource type="Texture2D" uid="uid://bkwg0opyttkvi" path="res://assets/guild_hall_mission_board.png" id="5_fos0i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glv2v"]
 bg_color = Color(0.0742442, 0.0449505, 0.0264639, 1)
@@ -62,6 +63,11 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 
+[sub_resource type="Theme" id="Theme_3dxm6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgr22"]
+bg_color = Color(0.6, 0.6, 0.6, 0.333333)
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -118,6 +124,23 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_fos0i")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TavernBackground_mission_hover" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_fos0i")
 expand_mode = 1
 stretch_mode = 6
 
@@ -203,5 +226,50 @@ layout_mode = 2
 [node name="NextDayButton" type="Button" parent="GameUI/BottomBar"]
 layout_direction = 3
 layout_mode = 2
-text = "Next Day
+text = "Next Day ⌛
 "
+
+[node name="tavern_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 271.0
+offset_right = 200.0
+offset_bottom = 533.0
+text = "Manage Tavern"
+
+[node name="mission_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 215.0
+offset_right = 614.0
+offset_bottom = 371.0
+
+[node name="desk_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 225.0
+offset_right = 923.0
+offset_bottom = 528.0
+
+[node name="BeerManagementPopup" type="AcceptDialog" parent="."]
+title = "Manage Beer"
+position = Vector2i(70, 192)
+size = Vector2i(400, 350)
+theme = SubResource("Theme_3dxm6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgr22")
+ok_button_text = "Close"
+
+[node name="MissionBoardPopup" type="AcceptDialog" parent="."]
+
+[node name="DeskBoardPopup" type="AcceptDialog" parent="."]
+
+[connection signal="pressed" from="GameUI/BottomBar/NextDayButton" to="." method="_on_next_day_button_pressed"]
+[connection signal="mouse_entered" from="tavern_button" to="." method="_on_tavern_button_mouse_entered"]
+[connection signal="mouse_exited" from="tavern_button" to="." method="_on_tavern_button_mouse_exited"]
+[connection signal="pressed" from="tavern_button" to="." method="_on_tavern_button_pressed"]
+[connection signal="mouse_entered" from="mission_button" to="." method="_on_mission_button_mouse_entered"]
+[connection signal="mouse_exited" from="mission_button" to="." method="_on_mission_button_mouse_exited"]
+[connection signal="pressed" from="mission_button" to="." method="_on_mission_button_pressed"]
+[connection signal="mouse_entered" from="desk_button" to="." method="_on_desk_button_mouse_entered"]
+[connection signal="mouse_exited" from="desk_button" to="." method="_on_desk_button_mouse_exited"]
+[connection signal="pressed" from="desk_button" to="." method="_on_desk_button_pressed"]
