@@ -230,6 +230,7 @@ text = "Next Day ⌛
 "
 
 [node name="tavern_button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.447059)
 layout_mode = 0
 offset_left = 2.0
 offset_top = 271.0
@@ -238,18 +239,23 @@ offset_bottom = 533.0
 text = "Manage Tavern"
 
 [node name="mission_button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.427451)
 layout_mode = 0
 offset_left = 330.0
 offset_top = 215.0
 offset_right = 614.0
 offset_bottom = 371.0
+text = "Manage Missions
+"
 
 [node name="desk_button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.466667)
 layout_mode = 0
 offset_left = 720.0
 offset_top = 225.0
 offset_right = 923.0
 offset_bottom = 528.0
+text = "Manage Recruits"
 
 [node name="BeerManagementPopup" type="AcceptDialog" parent="."]
 title = "Manage Beer"
